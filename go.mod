@@ -9,11 +9,7 @@ require (
 	github.com/qiangxue/fasthttp-routing v0.0.0-20160225050629-6ccdc2a18d87
 )
 
-require (
-	github.com/rpcxio/rpcx-examples v1.1.6
-	github.com/smallnest/rpcx v1.7.11
-	github.com/spf13/cobra v1.6.1
-)
+require github.com/spf13/cobra v1.6.1
 
 require (
 	github.com/FZambia/sentinel v1.1.1 // indirect
@@ -84,6 +80,7 @@ require (
 	github.com/rs/xid v1.4.0 // indirect
 	github.com/rubyist/circuitbreaker v2.2.1+incompatible // indirect
 	github.com/smallnest/quick v0.0.0-20220703133648-f13409fa6c67 // indirect
+	github.com/smallnest/rpcx v1.7.11 // indirect
 	github.com/soheilhy/cmux v0.1.5 // indirect
 	github.com/spf13/afero v1.9.2 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
