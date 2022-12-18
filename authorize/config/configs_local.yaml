@@ -17,3 +17,11 @@ rpcServer:
   basePath: "go-admin"
   addr: ""
   port: 7655
+
+wdb:
+  type: "mysql"
+  user: "root"
+  password: "starunion"
+  host: "127.0.0.1"
+  port: "3306"
+  name: "go-admin"

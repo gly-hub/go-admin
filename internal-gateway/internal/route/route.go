@@ -7,7 +7,6 @@ import (
 
 func InitRoute(){
 	baseRouter := application.HttpServer().Router()
-
 	// auth服务相关路由
 	auth.InitAuthRoute(baseRouter)
 }
