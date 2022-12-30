@@ -5,7 +5,8 @@ type AdminDepartment struct {
 	Name     string `json:"name"`      // 部门名称
 	NameEn   string `json:"name_en"`   // 部门英文名称
 	ParentId int    `json:"parent_id"` // 父级部门id
-	Order    int    `json:"order"`     // 排序
+	Sort     int    `json:"sort"`      // 排序
+	BaseModel
 }
 
 func (ad *AdminDepartment) TableName() string {
@@ -13,9 +14,9 @@ func (ad *AdminDepartment) TableName() string {
 }
 
 type AdminDepartmentLeader struct {
-	Id           int `json:"id"`            // 自增键
-	DepartmentId int `json:"department_id"` // 部门id
-	UserId       int `json:"user_id"`       // 用户id
+	Id           int    `json:"id"`            // 自增键
+	DepartmentId int    `json:"department_id"` // 部门id
+	UserId       string `json:"user_id"`       // 用户id
 }
 
 func (adl *AdminDepartmentLeader) TableName() string {

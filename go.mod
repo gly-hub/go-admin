@@ -2,14 +2,18 @@ module github.com/gly-hub/go-admin
 
 go 1.17
 
-replace github.com/gly-hub/go-dandelion v0.0.0-00010101000000-000000000000 => ../go-dandelion
-
-require (
-	github.com/gly-hub/go-dandelion v0.0.0-00010101000000-000000000000
-	github.com/qiangxue/fasthttp-routing v0.0.0-20160225050629-6ccdc2a18d87
+replace (
+	github.com/gly-hub/go-dandelion v0.0.0-00010101000000-000000000000 => ../go-dandelion
+	github.com/gly-hub/fasthttp-routing v0.0.0-20160225050629-6ccdc2a18d87 => ../fasthttp-routing
 )
 
-require github.com/spf13/cobra v1.6.1
+require github.com/gly-hub/go-dandelion v0.0.0-00010101000000-000000000000
+
+require (
+	github.com/gly-hub/fasthttp-routing v0.0.0-20160225050629-6ccdc2a18d87
+	github.com/json-iterator/go v1.1.12
+	github.com/spf13/cobra v1.6.1
+)
 
 require (
 	github.com/FZambia/sentinel v1.1.1 // indirect
@@ -47,7 +51,6 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/juju/ratelimit v1.0.1 // indirect
 	github.com/julienschmidt/httprouter v1.3.0 // indirect
 	github.com/kavu/go_reuseport v1.5.0 // indirect

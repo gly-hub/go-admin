@@ -1,11 +1,11 @@
 package auth
 
 import (
+	routing "github.com/gly-hub/fasthttp-routing"
 	"github.com/gly-hub/go-admin/internal-gateway/internal/service/auth"
-	routing "github.com/qiangxue/fasthttp-routing"
 )
 
-func InitAuthRoute(baseRouter *routing.RouteGroup){
+func InitAuthRoute(baseRouter *routing.RouteGroup) {
 	authHandler := auth.AuthController{}
 
 	// 登录登出
@@ -17,7 +17,7 @@ func InitAuthRoute(baseRouter *routing.RouteGroup){
 		systemGroup := authGroup.Group("/system")
 		{
 			// 获取菜单树
-			systemGroup.Post("/menu/tree", nil)
+			systemGroup.Get("/menu/tree", authHandler.GetMenuTree)
 		}
 	}
 }

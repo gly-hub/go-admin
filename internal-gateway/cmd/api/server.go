@@ -8,6 +8,7 @@ package api
 
 import (
 	"fmt"
+	routing "github.com/gly-hub/fasthttp-routing"
 	"github.com/gly-hub/go-admin/internal-gateway/internal/route"
 	"github.com/gly-hub/go-dandelion/application"
 	"github.com/gly-hub/go-dandelion/config"
@@ -21,12 +22,12 @@ import (
 )
 
 var (
-	env string
+	env      string
 	StartCmd = &cobra.Command{
-		Use: "server",
-		Short: "Start API server",
-		Example: "internal-gateway server -e local",
-		SilenceUsage:true,
+		Use:          "server",
+		Short:        "Start API server",
+		Example:      "internal-gateway server -e local",
+		SilenceUsage: true,
 		PreRun: func(cmd *cobra.Command, args []string) {
 			setup()
 		},
@@ -40,17 +41,28 @@ func init() {
 	StartCmd.PersistentFlags().StringVarP(&env, "env", "e", "local", "Env")
 }
 
-func setup(){
+func setup() {
 	// 配置初始化
 	config.InitConfig(env)
 	// 应用初始化
 	application.Init()
 	// 路由初始化
 	route.InitRoute()
+	// 注册头部context链路
+	application.RegisterHeaderFunc(HeaderFunc)
 }
 
+func HeaderFunc(ctx *routing.Context, data map[string]string) map[string]string {
+	// 获取用户名
+	data["user_name"] = ctx.Header.Value("user_name")
+	// 获取用户id
+	data["user_id"] = ctx.Header.Value("user_id")
+	// 获取模块
+	data["platform"] = ctx.Header.Value("platform")
+	return data
+}
 
-func run() error{
+func run() error {
 	// 启动http服务
 	go func() {
 		application.HttpServer().Server()

@@ -1,10 +1,10 @@
 package auth
 
 import (
+	routing "github.com/gly-hub/fasthttp-routing"
 	"github.com/gly-hub/go-admin/external-gateway/internal/enum"
 	"github.com/gly-hub/go-dandelion/logger"
 	"github.com/gly-hub/go-dandelion/server/http"
-	routing "github.com/qiangxue/fasthttp-routing"
 )
 
 type AuthController struct {

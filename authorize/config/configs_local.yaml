@@ -7,9 +7,6 @@ logger:
   multiFileWrite: false
   multiFileLevel: 7
 
-httpServer:
-  port: 8123
-
 rpcServer:
   model: 1
   serverName: "authorize"
