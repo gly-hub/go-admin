@@ -12,7 +12,7 @@ type AdminMenu struct {
 	Icon       string `json:"icon"`       // 图标
 	Path       string `json:"path"`       // 路径
 	Paths      string `json:"paths"`      // 路径树
-	MenuType   string `json:"menu_type"`  // 菜单类型 1:模块 2：菜单 3：页面 4：tab 5：按钮
+	MenuType   string `json:"menu_type"`  // 菜单类型 P:模块 M：菜单 C：页面 T：tab F：按钮
 	Action     string `json:"action"`     // 行为
 	Permission string `json:"permission"` // 权限
 	ParentId   int    `json:"parent_id"`  // 父级id
@@ -22,8 +22,7 @@ type AdminMenu struct {
 	Visible    bool   `json:"visible"`    // 是否可见
 	IsFrame    bool   `json:"is_frame"`   // 是否是frame
 	BaseModel
-	DeletedAt int64 `json:"deleted_at"` // 删除时间
-	IsDelete  bool  `json:"is_delete"`  // 是否删除
+	IsDelete bool `json:"is_delete"` // 是否删除
 }
 
 func (am *AdminMenu) TableName() string {

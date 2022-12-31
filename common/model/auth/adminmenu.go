@@ -7,7 +7,7 @@ type UserMenuTreeParams struct {
 
 type AdminMenuTree struct {
 	AdminMenu
-	ChildMenus []AdminMenuTree
+	ChildMenus []AdminMenuTree `json:"child_menus"`
 }
 
 type AdminMenu struct {
@@ -31,11 +31,14 @@ type AdminMenu struct {
 	UpdateBy   string `json:"update_by"`  // 更新人
 	CreatedAt  int64  `json:"created_at"` // 创建时间
 	UpdatedAt  int64  `json:"updated_at"` // 更新时间
-	DeletedAt  int64  `json:"deleted_at"` // 删除时间
 	IsDelete   bool   `json:"is_delete"`  // 是否删除
 }
 
 type UserMenuTreeResp struct {
 	common.Response
 	Menus []AdminMenuTree `json:"menus"`
+}
+
+type SearchAdminMenuParams struct {
+	Title string `json:"title"` // 菜单名。模糊查询
 }

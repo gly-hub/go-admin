@@ -19,5 +19,14 @@ func InitAuthRoute(baseRouter *routing.RouteGroup) {
 			// 获取菜单树
 			systemGroup.Get("/menu/tree", authHandler.GetMenuTree)
 		}
+
+		// 菜单管理
+		menuGroup := authGroup.Group("/menu")
+		{
+			menuGroup.Post("/search", authHandler.GetMenuList)
+			menuGroup.Post("", authHandler.CreateMenu)
+			menuGroup.Put("", authHandler.UpdateMenu)
+			menuGroup.Delete("/<id>", authHandler.DeleteMenu)
+		}
 	}
 }
