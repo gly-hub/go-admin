@@ -73,6 +73,11 @@ func run() error {
 	fmt.Printf("-  Local:   http://localhost:%d/ \r\n", application.HttpServer().Port())
 	fmt.Printf("-  Network: http://%s:%d/ \r\n", ip.GetLocalHost(), application.HttpServer().Port())
 	fmt.Println()
+	if config.GetEnv() != "production" {
+		fmt.Println(logger.Green("Swagger run at:"))
+		fmt.Printf("-  Local:   http://localhost:%d/api/swagger/index.html \r\n", application.HttpServer().Port())
+		fmt.Printf("-  Network: http://%s:%d/api/swagger/index.html \r\n", ip.GetLocalHost(), application.HttpServer().Port())
+	}
 
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)
