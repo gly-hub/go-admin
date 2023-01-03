@@ -36,7 +36,7 @@ func (ar *AuthRpc) CreateAdminMenu(ctx context.Context, req auth.AdminMenu, resp
 	return nil
 }
 
-// UpdateAdminMenu 更新菜单项shanchu
+// UpdateAdminMenu 更新菜单项
 func (ar *AuthRpc) UpdateAdminMenu(ctx context.Context, req auth.AdminMenu, resp *common.Response) error {
 	operator := application.GetHeader(ctx, "user_name")
 	if err := logic.AdminMenu.UpdateMenu(req, operator); err != nil {

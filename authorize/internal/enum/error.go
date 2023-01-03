@@ -19,4 +19,7 @@ var (
 	MenuParentMenuNotFound = &serr.Error{Code: 12003, Msg: "父级菜单项不存在"}
 	PrimaryKeyNotFound     = &serr.Error{Code: 12004, Msg: "主键错误"}
 	MenuNotFound           = &serr.Error{Code: 12005, Msg: "菜单不存在"}
+	DictLabelRepeat        = &serr.Error{Code: 12006, Msg: "字典标签重复"}
+	DictValueIsExist       = &serr.Error{Code: 12007, Msg: "字典值key或value重复"}
+	DictValueParamsErr     = &serr.Error{Code: 12008, Msg: "字典值key和value不能为空"}
 )
