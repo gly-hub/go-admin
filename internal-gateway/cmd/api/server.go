@@ -1,7 +1,7 @@
 /**
 * @Author vangogh
 * @Description api服务cmd
-* @File:  server
+* @File:  model
 * @Datetime 2022/4/20 10:07
 **/
 package api
@@ -55,8 +55,6 @@ func setup() {
 func HeaderFunc(ctx *routing.Context, data map[string]string) map[string]string {
 	// 获取用户名
 	data["user_name"] = ctx.Header.Value("user_name")
-	// 获取用户id
-	data["user_id"] = ctx.Header.Value("user_id")
 	// 获取模块
 	data["platform"] = ctx.Header.Value("platform")
 	return data

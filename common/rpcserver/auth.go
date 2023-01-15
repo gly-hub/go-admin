@@ -11,6 +11,7 @@ const (
 	UserMenu = "UserMenu" // 获取用户菜单树
 )
 
+// 菜单管理
 const (
 	SearchAdminMenu = "SearchAdminMenu" // 查询菜单列表
 	CreateAdminMenu = "CreateAdminMenu" // 创建菜单项
@@ -18,6 +19,7 @@ const (
 	DeleteAdminMenu = "DeleteAdminMenu" // 删除菜单项
 )
 
+// 字典管理
 const (
 	SearchAdminDictLabel = "SearchAdminDictLabel" // 查询字典列表
 	CreateAdminDict      = "CreateAdminDict"      // 创建字典标签

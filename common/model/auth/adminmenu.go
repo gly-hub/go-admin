@@ -1,6 +1,8 @@
 package auth
 
-import "github.com/gly-hub/go-admin/common/model/common"
+import (
+	"github.com/gly-hub/go-admin/common/server/common"
+)
 
 type UserMenuTreeParams struct {
 }
