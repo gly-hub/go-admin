@@ -11,17 +11,18 @@ func InitAuthRoute(baseRouter *routing.RouteGroup) {
 
 	// 登录登出
 	baseRouter.Post("/login", authHandler.Login)
+	// 获取系统信息
+	baseRouter.Get("/app_info", authHandler.GetSystemInfo)
 
 	systemRouter := baseRouter.Group("/system")
 	systemRouter.Use(middleware.PermissionMiddleware())
 	{
-		// 获取系统信息
-		systemRouter.Get("/app_info", authHandler.GetSystemInfo)
 		// 获取菜单树
 		systemRouter.Get("/menu/tree", authHandler.GetMenuTree)
 	}
 
 	authGroup := baseRouter.Group("/auth")
+	authGroup.Use(middleware.PermissionMiddleware())
 	{
 		// 菜单管理
 		menuGroup := authGroup.Group("/menu")

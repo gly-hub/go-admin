@@ -14,6 +14,7 @@ rpcServer:
   basePath: "go-admin"
   addr: ""
   port: 7655
+  pprof: 7654
 
 wdb:
   type: "mysql"
@@ -22,3 +23,19 @@ wdb:
   host: "127.0.0.1"
   port: "3306"
   name: "go-admin"
+
+redis:
+  redisType: "alone"
+  network: "127.0.0.1:6379"
+  startAddr: ["127.0.0.1:6379"]
+  active: 100
+  idle: 100
+  auth: ""
+  connTimeout: "100ms"
+  readTimeout: "100ms"
+  writeTimeout: "100ms"
+  idleTimeout: "100ms"
+
+jwt:
+  key: go-admin
+  expire: 360

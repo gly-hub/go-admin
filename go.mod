@@ -5,6 +5,7 @@ go 1.17
 replace github.com/gly-hub/go-dandelion v0.0.0-20230103083608-8c9729508e1a => ../go-dandelion
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gly-hub/fasthttp-routing v0.0.0-20230103092213-f65d0ebb75bb
 	github.com/gly-hub/go-dandelion v0.0.0-20230103083608-8c9729508e1a
 	github.com/json-iterator/go v1.1.12

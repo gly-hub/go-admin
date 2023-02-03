@@ -8,6 +8,7 @@ var (
 	DataBaseErr   = &serr.Error{Code: 11000, Msg: "数据库错误"}
 	DataFormatErr = &serr.Error{Code: 11001, Msg: "参数错误"}
 	SystemErr     = &serr.Error{Code: 11002, Msg: "系统错误"}
+	TokenExpire   = &serr.Error{Code: 11003, Msg: "token过期"}
 )
 
 // 功能错误码 11000 -

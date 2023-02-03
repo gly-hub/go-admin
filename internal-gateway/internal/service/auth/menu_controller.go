@@ -58,5 +58,5 @@ func (a *AuthController) DeleteMenu(c *routing.Context) error {
 	if err != nil {
 		return a.Fail(c, err)
 	}
-	return a.Success(c, resp, "")
+	return a.Success(c, resp, resp.Msg)
 }

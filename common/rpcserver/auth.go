@@ -1,4 +1,4 @@
-package auth
+package rpcserver
 
 const (
 	// ServerName 服务名
@@ -7,8 +7,11 @@ const (
 
 // 方法名
 const (
-	Login    = "Login"    // 登录
-	UserMenu = "UserMenu" // 获取用户菜单树
+	Login      = "Login"      // 登录
+	Logout     = "Logout"     // 注销
+	CheckToken = "CheckToken" // 校验token
+	UserMenu   = "UserMenu"   // 获取用户菜单树
+	SystemInfo = "SystemInfo" // 获取系统信息
 )
 
 // 菜单管理

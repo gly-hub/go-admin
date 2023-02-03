@@ -1,22 +1,38 @@
 package auth
 
-import "github.com/gly-hub/go-admin/common/model/common"
+import "github.com/gly-hub/go-admin/common/model/lib"
 
-type LoginParams struct {
-	UserName string `json:"user_name"`
-	Password string `json:"password"`
-}
+type (
+	LoginParams struct {
+		UserId   string `json:"userId"`
+		Password string `json:"password"`
+	}
 
-type LoginResp struct {
-	common.Response
-	Token string `json:"token"`
-}
+	LoginResp struct {
+		lib.Response
+		Token string `json:"token"`
+	}
+)
 
-type LogoutParams struct {
-	UserName string `json:"user_name"`
-	Password string `json:"password"`
-}
+type (
+	LogoutParams struct {
+	}
 
-type LogoutResp struct {
-	common.Response
-}
+	LogoutResp struct {
+		lib.Response
+	}
+)
+
+type (
+	CheckTokenParams struct {
+		Token string `json:"token"`
+	}
+
+	CheckTokenResp struct {
+		lib.Response
+		Id       int64  `json:"id"`
+		UserId   string `json:"userId"`
+		UserName string `json:"userName"`
+		NewToken string `json:"newToken"`
+	}
+)

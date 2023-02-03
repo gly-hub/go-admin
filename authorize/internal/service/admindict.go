@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/gly-hub/go-admin/authorize/internal/logic"
 	"github.com/gly-hub/go-admin/common/model/auth"
-	"github.com/gly-hub/go-admin/common/model/common"
+	"github.com/gly-hub/go-admin/common/model/lib"
 	"github.com/gly-hub/go-dandelion/application"
 	serr "github.com/gly-hub/go-dandelion/error-support"
 	"github.com/gly-hub/go-dandelion/tools/copyx"
@@ -26,8 +26,8 @@ func (ar *AuthRpc) SearchAdminDictLabel(ctx context.Context, req auth.SearchAdmi
 }
 
 // CreateAdminDict 创建字典标签
-func (ar *AuthRpc) CreateAdminDict(ctx context.Context, req auth.AdminDictLabel, resp *common.Response) error {
-	operator := application.GetHeader(ctx, "user_name")
+func (ar *AuthRpc) CreateAdminDict(ctx context.Context, req auth.AdminDictLabel, resp *lib.Response) error {
+	operator := application.GetHeader(ctx, "userName")
 	if err := logic.AdminDict.CreateDict(req, operator); err != nil {
 		serr.Format(err, resp)
 		return nil
@@ -36,8 +36,8 @@ func (ar *AuthRpc) CreateAdminDict(ctx context.Context, req auth.AdminDictLabel,
 }
 
 // UpdateAdminDict 更新字典标签
-func (ar *AuthRpc) UpdateAdminDict(ctx context.Context, req auth.AdminDictLabel, resp *common.Response) error {
-	operator := application.GetHeader(ctx, "user_name")
+func (ar *AuthRpc) UpdateAdminDict(ctx context.Context, req auth.AdminDictLabel, resp *lib.Response) error {
+	operator := application.GetHeader(ctx, "userName")
 	if err := logic.AdminDict.UpdateDict(req, operator); err != nil {
 		serr.Format(err, resp)
 		return nil
@@ -46,8 +46,8 @@ func (ar *AuthRpc) UpdateAdminDict(ctx context.Context, req auth.AdminDictLabel,
 }
 
 // DeleteAdminDict 删除字典标签
-func (ar *AuthRpc) DeleteAdminDict(ctx context.Context, req auth.AdminDictLabel, resp *common.Response) error {
-	operator := application.GetHeader(ctx, "user_name")
+func (ar *AuthRpc) DeleteAdminDict(ctx context.Context, req auth.AdminDictLabel, resp *lib.Response) error {
+	operator := application.GetHeader(ctx, "userName")
 	if err := logic.AdminDict.DeleteDict(req, operator); err != nil {
 		serr.Format(err, resp)
 		return nil
@@ -71,8 +71,8 @@ func (ar *AuthRpc) SearchAdminDictValue(ctx context.Context, req auth.SearchAdmi
 }
 
 // CreateAdminDictValue 创建字典值
-func (ar *AuthRpc) CreateAdminDictValue(ctx context.Context, req auth.AdminDictValue, resp *common.Response) error {
-	operator := application.GetHeader(ctx, "user_name")
+func (ar *AuthRpc) CreateAdminDictValue(ctx context.Context, req auth.AdminDictValue, resp *lib.Response) error {
+	operator := application.GetHeader(ctx, "userName")
 	if err := logic.AdminDict.CreateDictValue(req, operator); err != nil {
 		serr.Format(err, resp)
 		return nil
@@ -81,8 +81,8 @@ func (ar *AuthRpc) CreateAdminDictValue(ctx context.Context, req auth.AdminDictV
 }
 
 // UpdateAdminDictValue 更新字典值
-func (ar *AuthRpc) UpdateAdminDictValue(ctx context.Context, req auth.AdminDictValue, resp *common.Response) error {
-	operator := application.GetHeader(ctx, "user_name")
+func (ar *AuthRpc) UpdateAdminDictValue(ctx context.Context, req auth.AdminDictValue, resp *lib.Response) error {
+	operator := application.GetHeader(ctx, "userName")
 	if err := logic.AdminDict.UpdateDictValue(req, operator); err != nil {
 		serr.Format(err, resp)
 		return nil
@@ -91,8 +91,8 @@ func (ar *AuthRpc) UpdateAdminDictValue(ctx context.Context, req auth.AdminDictV
 }
 
 // DeleteAdminDictValue 删除字典值
-func (ar *AuthRpc) DeleteAdminDictValue(ctx context.Context, req auth.AdminDictValue, resp *common.Response) error {
-	operator := application.GetHeader(ctx, "user_name")
+func (ar *AuthRpc) DeleteAdminDictValue(ctx context.Context, req auth.AdminDictValue, resp *lib.Response) error {
+	operator := application.GetHeader(ctx, "userName")
 	if err := logic.AdminDict.DeleteDictValue(req, operator); err != nil {
 		serr.Format(err, resp)
 		return nil

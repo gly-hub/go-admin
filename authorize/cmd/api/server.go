@@ -1,14 +1,16 @@
 /**
 * @Author vangogh
 * @Description api服务cmd
-* @File:  server
+* @File:  model
 * @Datetime 2022/4/20 10:07
 **/
 package api
 
 import (
 	"fmt"
+	"github.com/gly-hub/go-admin/authorize/global"
 	"github.com/gly-hub/go-admin/authorize/internal/service"
+	"github.com/gly-hub/go-admin/authorize/tools/redisx"
 	"github.com/gly-hub/go-dandelion/application"
 	"github.com/gly-hub/go-dandelion/config"
 	"github.com/gly-hub/go-dandelion/logger"
@@ -20,12 +22,12 @@ import (
 )
 
 var (
-	env string
+	env      string
 	StartCmd = &cobra.Command{
-		Use: "server",
-		Short: "Start API server",
-		Example: "authorize server -e local",
-		SilenceUsage:true,
+		Use:          "server",
+		Short:        "Start API server",
+		Example:      "authorize server -e local",
+		SilenceUsage: true,
 		PreRun: func(cmd *cobra.Command, args []string) {
 			setup()
 		},
@@ -39,17 +41,19 @@ func init() {
 	StartCmd.PersistentFlags().StringVarP(&env, "env", "e", "local", "Env")
 }
 
-func setup(){
+func setup() {
 	// 配置初始化
-	config.InitConfig(env)
+	config.InitConfig(env, &global.BaseConfig)
 	// 应用初始化
 	application.Init()
-
-
+	// 初始化jwt
+	global.InitJwt()
+	// 初始化redis事件订阅
+	redisx.PSubscribeListen((&application.Redis{}).GetRedis())
 }
 
-func run() error{
-	// 初始化rpc server
+func run() error {
+	// 初始化rpc model
 	go func() {
 		application.RpcServer(new(service.AuthRpc))
 	}()

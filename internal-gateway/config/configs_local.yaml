@@ -9,6 +9,7 @@ logger:
 
 httpServer:
   port: 8123
+  pprof: 8122
 
 rpcServer:
   model: 1

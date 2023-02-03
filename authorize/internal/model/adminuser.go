@@ -1,8 +1,14 @@
 package model
 
+type AuthMeta struct {
+	Id       int64  `json:"id"`
+	UserId   string `json:"userId"`
+	UserName string `json:"userName"`
+}
+
 // AdminUser 用户
 type AdminUser struct {
-	Id         int32  `json:"id"`
+	Id         int64  `json:"id"`
 	UserId     string `json:"user_id"`     // 成员UserID
 	Password   string `json:"password"`    // 密码
 	Name       string `json:"name"`        // 成员名称

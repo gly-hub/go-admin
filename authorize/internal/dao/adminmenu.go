@@ -19,7 +19,7 @@ func (amd adminMenuDao) GetAllAdminMenu() (menus []model.AdminMenu, err error) {
 
 // GetAdminMenuByPlatform 获取平台菜单
 func (amd adminMenuDao) GetAdminMenuByPlatform(platform int) (menus []model.AdminMenu, err error) {
-	err = amd.GetRDB().Model(model.AdminMenu{}).Where("is_delete = 0 and platform = ?", platform).Find(&menus).Error
+	err = amd.GetRDB().Model(model.AdminMenu{}).Where("is_delete = 0 and platform = ? and menu_type in ('M', 'C')", platform).Find(&menus).Error
 	return
 }
 

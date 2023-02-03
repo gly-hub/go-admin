@@ -1,7 +1,7 @@
 /**
 * @Author vangogh
 * @Description api服务cmd
-* @File:  server
+* @File:  model
 * @Datetime 2022/4/20 10:07
 **/
 package api
@@ -14,12 +14,12 @@ import (
 )
 
 var (
-	env string
+	env      string
 	StartCmd = &cobra.Command{
-		Use: "server",
-		Short: "Start API server",
-		Example: "external-gateway server -e local",
-		SilenceUsage:true,
+		Use:          "model",
+		Short:        "Start API model",
+		Example:      "external-gateway model -e local",
+		SilenceUsage: true,
 		PreRun: func(cmd *cobra.Command, args []string) {
 			setup()
 		},
@@ -33,7 +33,7 @@ func init() {
 	StartCmd.PersistentFlags().StringVarP(&env, "env", "e", "local", "Env")
 }
 
-func setup(){
+func setup() {
 	// 配置初始化
 	config.InitConfig(env)
 	// 应用初始化
@@ -42,8 +42,7 @@ func setup(){
 	route.InitRoute()
 }
 
-
-func run() error{
+func run() error {
 	// 启动http服务
 	application.HttpServer().Server()
 	return nil

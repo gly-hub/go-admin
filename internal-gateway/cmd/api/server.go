@@ -54,9 +54,13 @@ func setup() {
 
 func HeaderFunc(ctx *routing.Context, data map[string]string) map[string]string {
 	// 获取用户名
-	data["user_name"] = ctx.Header.Value("user_name")
+	data["userId"] = ctx.Header.Value("userId")
+	// 获取用户名
+	data["userName"] = ctx.Header.Value("userName")
 	// 获取模块
 	data["platform"] = ctx.Header.Value("platform")
+	// 获取ip
+	data["ip"] = ctx.Header.Value("ip")
 	return data
 }
 
