@@ -1,7 +1,8 @@
 package route
 
 import (
-	_ "github.com/gly-hub/go-admin/internal-gateway/docs"
+	//_ "github.com/gly-hub/go-admin/internal-gateway/docs/auth"
+	_ "github.com/gly-hub/go-admin/internal-gateway/docs/operation"
 	"github.com/gly-hub/go-admin/internal-gateway/internal/route/auth"
 	"github.com/gly-hub/go-dandelion/application"
 	"github.com/gly-hub/go-dandelion/config"

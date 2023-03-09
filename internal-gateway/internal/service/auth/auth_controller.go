@@ -8,6 +8,14 @@ import (
 	"github.com/gly-hub/go-dandelion/server/http"
 )
 
+// @title go-admin API
+// @version 1.0.0
+// @description 基于RpcX + Vue + Element UI的前后端分离权限管理系统的接口文档
+// @description
+// @securityDefinitions.apikey Bearer
+// @in header
+// @name Authorization
+
 type AuthController struct {
 	http.HttpController
 }
