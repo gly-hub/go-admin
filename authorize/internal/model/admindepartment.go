@@ -7,6 +7,7 @@ type AdminDepartment struct {
 	ParentId int    `json:"parent_id"` // 父级部门id
 	Sort     int    `json:"sort"`      // 排序
 	BaseModel
+	Children []AdminDepartment `gorm:"-"`
 }
 
 func (ad *AdminDepartment) TableName() string {

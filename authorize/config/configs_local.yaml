@@ -16,13 +16,26 @@ rpcServer:
   port: 7655
   pprof: 7654
 
-wdb:
-  type: "mysql"
-  user: "root"
-  password: "starunion"
-  host: "127.0.0.1"
-  port: "3306"
-  name: "go-admin"
+db:
+  dbType: "mysql"
+  maxOpenConn: 20
+  maxIdleConn: 4
+  maxIdleTime: 100
+  maxLifeTime: 3600
+  level: 4
+  slowThreshold: "1ms"
+  master:
+    user: "root"
+    password: "starunion"
+    host: "127.0.0.1"
+    port: "3306"
+    database: "go-admin"
+  slave:
+    - user: "root"
+      password: "starunion"
+      host: "127.0.0.1"
+      port: "3306"
+      database: "go-admin"
 
 redis:
   redisType: "alone"

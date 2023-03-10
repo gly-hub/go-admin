@@ -7,7 +7,7 @@ import (
 	"github.com/gly-hub/go-admin/common/model/auth"
 	"github.com/gly-hub/go-dandelion/logger"
 	"github.com/gly-hub/go-dandelion/tools/copyx"
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 	"sort"
 	"time"
 )

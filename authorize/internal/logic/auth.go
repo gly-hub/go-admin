@@ -7,7 +7,7 @@ import (
 	"github.com/gly-hub/go-admin/authorize/internal/model"
 	"github.com/gly-hub/go-admin/authorize/tools/redisx"
 	"github.com/gly-hub/go-dandelion/logger"
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 	"time"
 )
 
